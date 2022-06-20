@@ -24,7 +24,6 @@ It's very simple, the steps to lifting up the app are the next:
 - Start the required containers: `docker-compose up -d apache2 mysql`
 - Enter to the 'workspace' container: `docker-compose exec --user=laradock workspace bash`
 - Install composer dependencies: `composer install`
-- Generate the project key: `php artisan key:generate`
 - Run the migrations to make the database tables: `php artisan migrate`
 - !OPTIONAL: If you want some TODO tasks per default, you can run the seeders: `php artisan db:seed`
 - Access to the project through [this link](http://localhost)
