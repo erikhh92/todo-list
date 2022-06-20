@@ -19,29 +19,25 @@ You can download the code from this repository using the next command:
 
 It's very simple, the steps to lifting up the app are the next:
 
-- Enter on the folder downloaded previously and prepare the docker container: `cd todo-list`
+- Enter on the folder downloaded previously: `cd todo-list`
 - Open the laradock folder: `cd laradock`
 - Start the required containers: `docker-compose up -d apache2 mysql`
 - Enter to the 'workspace' container: `docker-compose exec --user=laradock workspace bash`
 - Install composer dependencies: `composer install`
 - Generate the project key: `php artisan key:generate`
 - Run the migrations to make the database tables: `php artisan migrate`
-- !OPTIONAL: If we want some TODO tasks per default, you can run the seeders: `php artisan db:seed`
+- !OPTIONAL: If you want some TODO tasks per default, you can run the seeders: `php artisan db:seed`
 - Access to the project through [this link](http://localhost)
 
 
-### Things to think about
+### Things to improve
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Thinks to improve:
+- Validation
+- Websockets to update the TO-DO lists
+- Transitions when opening and adding items
+- Order items manually
+- Pin items to the top
+- TO-DO items belonging to user
+- Allow to share items with other users
+- Integration of a bookmark or better options in the items like: checklists, formatted text, etc..
