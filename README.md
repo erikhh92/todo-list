@@ -19,11 +19,15 @@ You can download the code from this repository using the next command:
 
 It's very simple, the steps to lifting up the app are the next:
 
-- Enter on the folder downloaded previously and prepare the docker container: `cd todo-list && ./vendor/bin/sail up -d`
-- Install composer dependencies: `./vendor/bin/sail composer install`
-- Run the compiler for the JS dependencies: `./vendor/bin/sail npm run dev`
-- Run the migrations to make the database tables: `./vendor/bin/sail artisan migrate`
-- !OPTIONAL: If we want some TODO tasks per default, you can run the seeders: `./vendor/bin/sail artisan db:seed`
+- Enter on the folder downloaded previously and prepare the docker container: `cd todo-list`
+- Open the laradock folder: `cd laradock`
+- Start the required containers: `docker-compose up -d apache2 mysql`
+- Enter to the 'workspace' container: `docker-compose exec --user=laradock workspace bash`
+- Install composer dependencies: `composer install`
+- Generate the project key: `php artisan key:generate`
+- Run the migrations to make the database tables: `php artisan migrate`
+- !OPTIONAL: If we want some TODO tasks per default, you can run the seeders: `php artisan db:seed`
+- Access to the project through [this link](http://localhost)
 
 
 ### Things to think about
