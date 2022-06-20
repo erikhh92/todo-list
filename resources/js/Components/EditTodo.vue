@@ -1,5 +1,5 @@
 <template>
-    <bootstrap-modal :show="modalStatus">
+    <bootstrap-modal :show="modalStatus" @hide="reset">
         <template #title>
             {{ modalTitle }}
         </template>
@@ -10,7 +10,11 @@
                     type="text"
                     class="form-control"
                     v-model="editingItem.title"
+                    :class="{'is-invalid': editingItem.errors.title}"
                 />
+                <div v-if="editingItem.errors.title" class="d-block invalid-feedback">
+                    {{ editingItem.errors.title }}
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Category</label>
@@ -21,8 +25,12 @@
                         :key="category.id"
                         :value="category.id"
                         v-text="category.title"
+                        :class="{'is-invalid': editingItem.errors.category_id}"
                     ></option>
                 </select>
+                <div v-if="editingItem.errors.category_id" class="d-block invalid-feedback">
+                    {{ editingItem.errors.category_id }}
+                </div>
             </div>
             <div class="mb-3">
                 <label class="form-label">Description</label>
@@ -30,7 +38,11 @@
                     class="form-control"
                     v-model="editingItem.description"
                     rows="5"
+                    :class="{'is-invalid': editingItem.errors.description}"
                 ></textarea>
+                <div v-if="editingItem.errors.description" class="d-block invalid-feedback">
+                    {{ editingItem.errors.description }}
+                </div>
             </div>
         </template>
         <template #footer>
